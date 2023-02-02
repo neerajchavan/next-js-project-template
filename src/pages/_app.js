@@ -1,9 +1,10 @@
 import { AuthGuard } from "@/components/auth/AuthGuard";
 import { AuthProvider } from "@/components/auth/AuthProvider";
-import 'bootstrap/dist/css/bootstrap.min.css';
+import "bootstrap/dist/css/bootstrap.min.css";
 import "@/styles/globals.scss";
 import Head from "next/head";
 import Script from "next/script";
+import ErrorBoundary from "@/components/common/ErrorBoundry";
 
 export default function App({ Component, pageProps }) {
   return (
@@ -23,17 +24,19 @@ export default function App({ Component, pageProps }) {
         crossOrigin="anonymous"
       /> */}
 
-      <AuthProvider>
-        {/* if requireAuth property is present - protect the page */}
-        {Component?.requireAuth ? (
-          <AuthGuard requireAdmin={Component?.requireAdmin}>
+      <ErrorBoundary>
+        <AuthProvider>
+          {/* if requireAuth property is present - protect the page */}
+          {Component?.requireAuth ? (
+            <AuthGuard requireAdmin={Component?.requireAdmin}>
+              <Component {...pageProps} />
+            </AuthGuard>
+          ) : (
+            // public page
             <Component {...pageProps} />
-          </AuthGuard>
-        ) : (
-          // public page
-          <Component {...pageProps} />
-        )}
-      </AuthProvider>
+          )}
+        </AuthProvider>
+      </ErrorBoundary>
     </>
   );
 }
