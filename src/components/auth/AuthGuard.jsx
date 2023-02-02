@@ -1,4 +1,5 @@
 import { useAuth } from "@/hooks/useAuth"
+import { USEROLE } from "@/utils/constants"
 import { useRouter } from "next/router"
 import { useEffect } from "react"
 import GlobalLoader from "../common/GlobalLoader"
@@ -16,7 +17,7 @@ export function AuthGuard({ children, requireAdmin = false }) {
         router.push("/login")
       }
 
-      if(requireAdmin && user?.role != "ADMIN"){
+      if(requireAdmin && user?.role != USEROLE.ADMIN){
         setRedirect(router.route)
         router.push('/unauthorized')
       }

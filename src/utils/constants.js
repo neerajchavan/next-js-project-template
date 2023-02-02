@@ -1,0 +1,5 @@
+export const USEROLE = {
+    ADMIN: 'ADMIN',
+    SUPERADMIN: 'SUPER_ADMIN',
+    CUSTOMER: 'CUSTOMER'
+}
