@@ -1,8 +1,18 @@
+import { useAuth } from "@/hooks/useAuth";
 import React, { useState } from "react";
 
-const DashboardPage = () => {
+export default function DashboardPage () {
+
+  const { signOut } = useAuth();
+
+  console.log('dashboard page -- ',DashboardPage);
   
-  return <div>Dashboard Page</div>;
+  return (
+    <>
+      <h1>Dashboard Page</h1>
+      <button onClick={signOut}>Logout</button>
+    </>
+  )
 };
 
-export default DashboardPage;
+DashboardPage.requireAuth = true;

@@ -1,3 +1,5 @@
+import { AuthGuard } from "@/components/auth/AuthGuard";
+import { AuthProvider } from "@/components/auth/AuthProvider";
 import "@/styles/globals.scss";
 import Head from "next/head";
 import Script from "next/script";
@@ -19,8 +21,18 @@ export default function App({ Component, pageProps }) {
         integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
         crossorigin="anonymous"
       />
-      
-      <Component {...pageProps} />
+
+      <AuthProvider>
+        {/* if requireAuth property is present - protect the page */}
+        {Component.requireAuth ? (
+          <AuthGuard>
+            <Component {...pageProps} />
+          </AuthGuard>
+        ) : (
+          // public page
+          <Component {...pageProps} />
+        )}
+      </AuthProvider>
     </>
   );
 }

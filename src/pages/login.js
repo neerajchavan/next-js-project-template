@@ -1,6 +1,15 @@
+import { useAuth } from "@/hooks/useAuth";
 import React from "react";
 
 const LoginPage = () => {
+
+  const {signIn} = useAuth();
+
+  const onClickSubmitHandler = (e) => {
+    e.preventDefault();
+    signIn();
+  }
+
   return (
     <main className="flex-center vh-100">
       <div className="container bg-white w-25 p-5">
@@ -23,7 +32,7 @@ const LoginPage = () => {
               Check me out
             </label>
           </div>
-          <button type="submit" className="btn btn-primary mt-4">
+          <button onClick={onClickSubmitHandler} className="btn btn-primary mt-4">
             Submit
           </button>
         </form>

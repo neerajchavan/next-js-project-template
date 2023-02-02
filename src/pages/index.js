@@ -1,6 +1,7 @@
 import Head from "next/head";
 import { Inter, Roboto_Flex } from "@next/font/google";
 import Script from "next/script";
+import Link from "next/link";
 
 const inter = Inter({ subsets: ["latin"] });
 const roboto = Roboto_Flex({ subsets: ["latin"] });
@@ -20,6 +21,7 @@ export default function Home() {
         <div className="row">
           <div className="col-3 bg-primary">Col-3</div>
           <div className="col-9 bg-secondary">Col-9</div>
+          <Link href={'/dashboard'}>Dashboard</Link>
         </div>
       </main>
     </>
