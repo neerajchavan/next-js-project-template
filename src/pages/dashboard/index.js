@@ -1,5 +1,5 @@
 import { useAuth } from "@/hooks/useAuth";
-import React, { useState } from "react";
+import React from "react";
 
 export default function DashboardPage () {
 
@@ -15,4 +15,5 @@ export default function DashboardPage () {
   )
 };
 
+// To authenticate the page set requireAuth to true 
 DashboardPage.requireAuth = true;
