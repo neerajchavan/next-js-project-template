@@ -18,6 +18,7 @@ export function AuthProvider({ children }) {
         name: "Ivan",
         email: "test@mail.com",
         token: "dfasdfadsf.asdfasdf.afsdfasd",
+        role: "USER"
       };
 
       setUser(res);

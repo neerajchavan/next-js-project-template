@@ -1,11 +1,11 @@
 import { useAuth } from "@/hooks/useAuth";
 import React from "react";
 
-export default function DashboardPage () {
+export default function DashboardPage ({testProp}) {
 
   const { signOut } = useAuth();
 
-  console.log('dashboard page -- ',DashboardPage);
+  console.log('DashboardPage: ', testProp);
   
   return (
     <>
@@ -15,5 +15,17 @@ export default function DashboardPage () {
   )
 };
 
+// Not sure if we should use getServerSideProps or Below thing for authentication
+export async function getServerSideProps(context) {
+  return {
+    props: {
+      requireAuth: true,
+      requireAdmin: false,
+      testProp: 'testProp'
+    }, // will be passed to the page component as props
+  }
+}
+
 // To authenticate the page set requireAuth to true 
 DashboardPage.requireAuth = true;
+DashboardPage.requireAdmin = false;
