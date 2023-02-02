@@ -1,7 +1,7 @@
 import { useAuth } from "@/hooks/useAuth"
 import { useRouter } from "next/router"
 import { useEffect } from "react"
-import GlobalLoader from "../GlobalLoader"
+import GlobalLoader from "../common/GlobalLoader"
 
 export function AuthGuard({ children }) {
   const { user, isLoading, setRedirect } = useAuth()

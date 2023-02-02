@@ -1,14 +1,14 @@
+import Toast from "@/components/common/Toast";
 import { useAuth } from "@/hooks/useAuth";
 import React from "react";
 
 const LoginPage = () => {
-
-  const {signIn} = useAuth();
+  const { signIn } = useAuth();
 
   const onClickSubmitHandler = (e) => {
     e.preventDefault();
     signIn();
-  }
+  };
 
   return (
     <main className="flex-center vh-100">
