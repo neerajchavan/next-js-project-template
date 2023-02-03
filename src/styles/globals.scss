@@ -16,24 +16,18 @@ body {
 h1 {
   @include desktop-xl {
     color: chartreuse;
-    font-size: 100%;
   }
   @include desktop-lg {
     color: rebeccapurple;
-    font-size: 95%;
   }
   @include desktop-md {
     color: olivedrab;
-    font-size: 90%;
   }
   @include desktop-sm {
-    font-size: 85%;
   }
   @include tablet-md {
-    font-size: 80%;
   }
   @include tablet {
     color: blueviolet;
-    font-size: 70%;
   }
 }
