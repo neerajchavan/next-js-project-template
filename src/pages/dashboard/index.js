@@ -1,18 +1,31 @@
-import CustomModal from "../../components/CustomModal";
-import React, { useEffect, useState } from "react";
+import { useAuth } from "@/hooks/useAuth";
+import React from "react";
 
-const DashboardPage = () => {
+export default function DashboardPage ({testProp}) {
 
-  const [openModal, setOpenModal] = useState(false)
+  const { signOut } = useAuth();
 
+  console.log('DashboardPage: ', testProp);
   
   return (
     <>
-      <div data-testid="dashboard">Dashboard Page</div>
-      <button onClick={() => setOpenModal(true)}>Open Model</button>
-      <CustomModal show={openModal} onSuccess={() => setOpenModal(false)} onClose={() => setOpenModal(false)}/>
+      <h1>Dashboard Page</h1>
+      <button onClick={signOut}>Logout</button>
     </>
-  );
+  )
 };
 
-export default DashboardPage;
+// Not sure if we should use getServerSideProps or Below thing for authentication
+export async function getServerSideProps(context) {
+  return {
+    props: {
+      requireAuth: true,
+      requireAdmin: false,
+      testProp: 'testProp'
+    }, // will be passed to the page component as props
+  }
+}
+
+// To authenticate the page set requireAuth to true 
+DashboardPage.requireAuth = true;
+DashboardPage.requireAdmin = false;
