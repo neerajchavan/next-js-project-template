@@ -6,7 +6,7 @@ const LoginPage = () => {
       <div className="container bg-white w-25 p-5">
         <form>
           <div className="mb-3">
-            <label htmlFor="exampleInputEmail1" className="form-label">
+            <label htmlFor="exampleInputEmail1" className="form-label" data-testid="email">
               Email address
             </label>
             <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
