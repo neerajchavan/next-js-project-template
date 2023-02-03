@@ -1,0 +1,51 @@
+@import "variables";
+
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin abs-position($top, $right, $bottom, $left) {
+  position: absolute;
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left;
+}
+
+@mixin desktop-xl {
+  @media only screen and (min-width: ($desktop-xl * 1px)) {
+    @content;
+  }
+}
+
+@mixin desktop-lg {
+  @media only screen and (min-width: ($desktop-lg * 1px)) and (max-width: ($desktop-xl * 1px)) {
+    @content;
+  }
+}
+
+@mixin desktop-md {
+  @media only screen and (min-width: ($desktop-md * 1px)) and (max-width: ($desktop-lg * 1px)) {
+    @content;
+  }
+}
+
+@mixin desktop-sm {
+  @media only screen and (min-width: ($desktop-sm * 1px)) and (max-width: ($desktop-md * 1px)) {
+    @content;
+  }
+}
+
+@mixin tablet-md {
+  @media only screen and (min-width: ($tablet-md * 1px)) and (max-width: ($desktop-sm * 1px)) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media only screen and (min-width: ($tablet * 1px)) and (max-width: ($tablet-md * 1px)) {
+    @content;
+  }
+}

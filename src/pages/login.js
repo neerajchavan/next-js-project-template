@@ -13,6 +13,7 @@ const LoginPage = () => {
   return (
     <main className="flex-center vh-100">
       <div className="container bg-white w-25 p-5">
+        <h1>Login Page</h1>
         <form>
           <div className="mb-3">
             <label htmlFor="exampleInputEmail1" className="form-label">
